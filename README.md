@@ -239,7 +239,16 @@ All placeholders are listed in **`.env.example`**. Never commit a real `.env` fi
 
 ## Deployment notes
 
-- Configure the same environment variables on the host as in `.env.example`; set `BETTER_AUTH_URL` to the **public** origin users hit in the browser.
+- Configure the same environment variables on the host as in `.env.example`; set `BETTER_AUTH_URL` to the **public** origin users hit in the browser (**must match your Vercel domain**, e.g. `https://your-app.vercel.app`).
 - Run `npm run db:migrate:deploy` against production `DATABASE_URL` before serving traffic.
-- Google OAuth console must list the production callback URL.
-- A `wrangler.jsonc` is present for **Cloudflare Workers**-style targets; adjust naming and secrets in the Cloudflare dashboard to match your org.
+- Google OAuth console must list the production callback URL: `{BETTER_AUTH_URL}/api/auth/callback/google`.
+
+### Vercel (TanStack Start + Nitro)
+
+This app uses **`nitro`** in `vite.config.ts` and **`cloudflare: false`** on the `@lovable.dev/vite-tanstack-config` preset so builds emit Vercel’s expected **`.vercel/output`** during CI (`VERCEL=1`). Without Nitro and with the default Cloudflare plugin enabled on `vite build`, the bundle targets **Cloudflare Workers**, which Vercel does not consume—typically resulting in **`404 NOT_FOUND`** at `/`.
+
+Deploy with default **build** `npm run build` without overriding Output Directory manually. Run migrations against prod DB (see [Prisma deploy migrations](https://www.prisma.io/docs/orm/prisma-client/deployment/deploy-database-changes-with-prisma-migrate)).
+
+### Cloudflare Workers (optional)
+
+- `wrangler.jsonc` references **`src/server.ts`** for Workers. Use Wrangler/deploy to Cloudflare if you prefer that path instead of Vercel.

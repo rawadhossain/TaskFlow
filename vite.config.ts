@@ -1,8 +1,12 @@
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
+import { nitro } from "nitro/vite";
 
-// Duplicating plugins here breaks the build — the preset already registers them.
 export default defineConfig({
+  cloudflare: false,
   tanstackStart: {
     server: { entry: "server" },
+  },
+  vite: {
+    plugins: [nitro()],
   },
 });
