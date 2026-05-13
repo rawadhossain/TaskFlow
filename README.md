@@ -185,6 +185,8 @@ The original assignment specified a minimal REST shape (`GET/POST /api/tasks`, e
 | `GOOGLE_CLIENT_ID`     | Yes (for Google login) | OAuth 2.0 client ID.                                       |
 | `GOOGLE_CLIENT_SECRET` | Yes (for Google login) | OAuth 2.0 client secret.                                   |
 
+**OAuth:** set Google redirect to `{BETTER_AUTH_URL}/api/auth/callback/google`. During `vite build`, the app exposes that same canonical origin to the browser client (`VITE_*` substitution from `vite.config.ts`)—use **`https://`** in production.
+
 All placeholders are listed in **`.env.example`**. Never commit a real `.env` file.
 
 ## Scripts

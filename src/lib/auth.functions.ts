@@ -4,7 +4,12 @@ import { getRequestHeaders } from "@tanstack/react-start/server";
 import { auth } from "@/lib/auth";
 
 export const getSession = createServerFn({ method: "GET" }).handler(async () => {
-  return auth.api.getSession({ headers: getRequestHeaders() });
+  try {
+    return await auth.api.getSession({ headers: getRequestHeaders() });
+  } catch (error) {
+    console.error("[getSession]", error);
+    return null;
+  }
 });
 
 export const ensureSession = createServerFn({ method: "GET" }).handler(async () => {
