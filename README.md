@@ -60,9 +60,8 @@ A production minded task management platform featuring Google authentication, Po
 - [Scripts](#scripts)
 - [Testing](#testing)
 - [Project structure](#project-structure)
-- [Assignment alignment & rubric](#assignment-alignment--rubric)
 - [Deployment notes](#deployment-notes)
-- [AI assistance disclosure](#ai-assistance-disclosure)
+
 
 ## Features
 
