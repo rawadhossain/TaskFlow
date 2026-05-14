@@ -12,9 +12,9 @@
   <h3 id="readme-top">Task-Flow</h3>
 
   <p>
-    <strong>Personal task manager — full-stack, persisted, and ready for real workflows</strong> <br />
-    <sub>Tasks, tags, subtasks, smart views, Google sign-in, soft-delete trash, stats, and keyboard shortcuts.</sub>
-  </p>
+  <strong>Modern personal productivity workspace — fast, organized, and built for real-world task management</strong> <br />
+  <sub>Tasks, tags, subtasks, smart views, Google sign-in, soft-delete trash, stats, and keyboard shortcuts.</sub>
+</p>
 
   <p>
     <a href="https://tanstack.com/start"><img src="https://img.shields.io/badge/TanStack_Start-app-0284c7?logo=react&logoColor=white" alt="TanStack Start" /></a>
@@ -47,10 +47,7 @@
   <br />
 
 </div>
-
-Production-oriented personal task manager: full-stack TypeScript, PostgreSQL persistence, Google sign-in, and a responsive dashboard for organizing tasks, tags, subtasks, smart views, and stats.
-
-This repository started from an intern take-home brief (see **Assignment alignment** below) and was extended with authentication, validation, soft-delete/trash, and deployment-ready structure.
+A production minded task management platform featuring Google authentication, PostgreSQL persistence, smart task organization, and a responsive dashboard experience.
 
 ## Table of contents
 
